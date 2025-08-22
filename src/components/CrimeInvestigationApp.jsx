@@ -117,7 +117,7 @@ const CrimeInvestigationApp = () => {
                         🔍 Système d'Enquête Criminelle
                     </h1>
                     <p className="text-gray-300 text-lg">
-                        Interface React avec serveur Prolog - Projet IA MI G6 IG
+                        Interface React avec serveur Prolog
                     </p>
                 </div>
 
