@@ -112,11 +112,11 @@ const CrimeInvestigationApp = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-700 text-white">
+        <div className="min-h-screen relative z-10">
             <div className="container mx-auto p-6">
                 {/* Header */}
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                    <h1 className="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-yellow-500">
                         Système d'Enquête Criminelle
                     </h1>
                     <p className="text-gray-300 text-lg">
@@ -183,7 +183,7 @@ const CrimeInvestigationApp = () => {
                         <button
                             onClick={analyzeCase}
                             disabled={loading || !selectedSuspect || !selectedCrime}
-                            className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-white hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center"
+                            className="w-full py-3 px-6 bg-gradient-to-r from-pink-600 to-yellow-600 rounded-lg font-semibold text-white hover:from-pink-700 hover:to-yellow-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center"
                         >
                             {loading ? (
                                 <>
