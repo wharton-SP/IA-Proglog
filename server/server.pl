@@ -109,25 +109,25 @@ crimes_handler(Request) :-
 analyze_handler(Request) :-
     add_cors(Request),
     http_read_json_dict(Request, Data),
-    Suspect = Data.suspect,
-    Crime = Data.crime,
+    atom_string(SuspectAtom, Data.suspect),
+    atom_string(CrimeAtom, Data.crime),
     
     % Vérifier si le suspect est coupable
-    (is_guilty(Suspect, Crime) -> 
+    (is_guilty(SuspectAtom, CrimeAtom) -> 
         Guilty = true ; 
         Guilty = false
     ),
     
     % Collecter les preuves
-    collect_evidence(Suspect, Crime, Evidence),
+    collect_evidence(SuspectAtom, CrimeAtom, Evidence),
     
     % Calculer le niveau de confiance
-    confidence_level(Suspect, Crime, Confidence),
+    confidence_level(SuspectAtom, CrimeAtom, Confidence),
     
     % Créer la réponse
     reply_json_dict(_{
-        suspect: Suspect,
-        crime: Crime,
+        suspect: Data.suspect,   % Garder la forme originale
+        crime: Data.crime,       % Garder la forme originale
         guilty: Guilty,
         confidence: Confidence,
         evidence: Evidence
