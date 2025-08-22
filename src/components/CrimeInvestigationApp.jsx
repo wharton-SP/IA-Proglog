@@ -135,7 +135,7 @@ const CrimeInvestigationApp = () => {
 
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* Panneau de contrôle */}
-                    <div className="bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-slate-600">
+                    <div className="bg-slate-800/50 backdrop-blur h-4/5 overflow-scroll rounded-xl p-6 border border-slate-600">
                         <h2 className="text-2xl font-bold mb-6 flex items-center">
                             <Users className="w-6 h-6 mr-2" />
                             Enquête
@@ -200,14 +200,14 @@ const CrimeInvestigationApp = () => {
                     </div>
 
                     {/* Base de faits Prolog */}
-                    <div className="bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-slate-600">
+                    <div className="bg-slate-800/50 backdrop-blur h-4/5 overflow-scroll rounded-xl p-6 border border-slate-600">
                         <h2 className="text-2xl font-bold mb-6 flex items-center">
                             <FileText className="w-6 h-6 mr-2" />
                             Base de connaissances
                         </h2>
 
                         {facts && (
-                            <div className="space-y-4 max-h-96 overflow-y-auto">
+                            <div className="space-y-4 max-h-96 ">
                                 <div>
                                     <h3 className="font-semibold text-blue-400 mb-2">Motifs :</h3>
                                     <div className="text-sm space-y-1">
