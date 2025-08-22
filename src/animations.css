@@ -1,0 +1,41 @@
+.cloud1 {
+    animation: cloudsMove 50s linear infinite;
+}
+
+.cloud2 {
+    animation: cloudsMove 70s linear 4s infinite;
+}
+
+.cloud3 {
+    animation: cloudsMove 40s linear 10s infinite;
+}
+
+.cloud4 {
+    animation: cloudsMove 60s linear 17s infinite;
+}
+
+.cloud1,
+.cloud2,
+.cloud3,
+.cloud4 {
+    opacity: 0;
+}
+
+@keyframes cloudsMove {
+    0% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+
+    50% {
+        opacity: 1;
+    }
+
+
+    100% {
+        opacity: 0;
+        transform: translateX(1000px);
+    }
+
+}

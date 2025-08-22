@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* Sun */
+
+.sun {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffe344;
+  box-shadow: 0 0 30px #FFD700, 0 0 60px #FFA500;
+}
+
+.sun2 {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: rgba(248, 217, 41, 0.404);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.sun3 {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+/* Cloud */
+
+.cloud {
+  position: relative;
+  filter: blur(3px); 
+  
+}
+
+.cloud .c1,
+.cloud .c2,
+.cloud .c3 {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.cloud .c1 {
+  width: 60px;
+  height: 60px;
+  top: -10px;
+  left: 130px;
+}
+
+.cloud .c2 {
+  width: 80px;
+  height: 80px;
+  top: -20px;
+  left: 30px;
+}
+
+.cloud .c3 {
+  width: 100px;
+  height: 100px;
+  top: -40px;
+  left: 70px;
+}
+
+
