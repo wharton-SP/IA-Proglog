@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Users, FileText, AlertCircle, CheckCircle, XCircle, Eye, Fingerprint, CreditCard, UserX, MapPin, Target } from 'lucide-react';
+import axios from 'axios';
 
 const CrimeInvestigationApp = () => {
     const [suspects, setSuspects] = useState([]);
@@ -19,20 +20,16 @@ const CrimeInvestigationApp = () => {
     const loadInitialData = async () => {
         try {
             const [suspectsRes, crimesRes, factsRes] = await Promise.all([
-                fetch(`api/suspects`),
-                fetch(`api/crimes`),
-                fetch(`api/facts`)
+                axios.get('api/suspects'),
+                axios.get('api/crimes'),
+                axios.get('api/facts')
             ]);
 
-            const suspectsData = await suspectsRes.json();
-            const crimesData = await crimesRes.json();
-            const factsData = await factsRes.json();
+            setSuspects(suspectsRes.data.suspects);
+            setCrimes(crimesRes.data.crimes);
+            setFacts(factsRes.data);
+            console.log("Facts loaded:", factsRes.data);
 
-            setSuspects(suspectsData.suspects);
-            setCrimes(crimesData.crimes);
-            setFacts(factsData);
-            console.log("Facts loaded:", factsData);
-            
         } catch (err) {
             setError('Erreur lors du chargement des données. Vérifiez que le serveur Prolog est démarré.');
             console.error('Erreur:', err);
@@ -49,19 +46,15 @@ const CrimeInvestigationApp = () => {
         setError('');
 
         try {
-            const response = await fetch(`api/analyze`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    suspect: selectedSuspect,
-                    crime: selectedCrime
-                })
-            });
+            const body = {
+                suspect: selectedSuspect,
+                crime: selectedCrime
+            };
+            console.log('Analyse body:', body);
+            const response = await axios.post('api/analyze', body);
+            console.log(response.data);
 
-            const result = await response.json();
-            setAnalysis(result);
+            setAnalysis(response.data);
         } catch (err) {
             setError('Erreur lors de l\'analyse. Vérifiez la connexion au serveur.');
             console.error('Erreur:', err);
@@ -258,8 +251,8 @@ const CrimeInvestigationApp = () => {
                         <h2 className="text-2xl font-bold mb-6">📊 Résultats de l'enquête</h2>
 
                         <div className={`p-6 rounded-lg border-l-4 ${analysis.guilty
-                                ? 'bg-red-900/20 border-red-500'
-                                : 'bg-green-900/20 border-green-500'
+                            ? 'bg-red-900/20 border-red-500'
+                            : 'bg-green-900/20 border-green-500'
                             }`}>
                             <div className="flex items-center justify-between mb-4">
                                 <div className="flex items-center">
