@@ -1,10 +1,11 @@
 # PROLOG PROJECT (Projet IA)
 
-https://img.shields.io/badge/nvm-pnpm-green
-https://img.shields.io/badge/server-swipl-orange
-https://img.shields.io/badge/lang-prolog-red
-https://img.shields.io/badge/lang-JS-yellow
-https://img.shields.io/badge/framework-React+Vite-cyan
+![Static Badge](https://img.shields.io/badge/nvm-pnpm-green)
+![Static Badge](https://img.shields.io/badge/server-swipl-orange)
+![Static Badge](https://img.shields.io/badge/lang-prolog-red)
+![Static Badge](https://img.shields.io/badge/lang-JS-yellow)
+![Static Badge](https://img.shields.io/badge/framework-React%2BVite-cyan)
+
 
 Ce projet est une enquête criminelle interactive utilisant Prolog (SWI-Prolog) pour la logique d'investigation. Le frontend est développé avec React et Vite, qui consomment une API exposée par le backend Prolog.
 
