@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Users, FileText, AlertCircle, CheckCircle, XCircle, Eye, Fingerprint, CreditCard, UserX, MapPin, Target } from 'lucide-react';
 import axios from 'axios';
+import { ChartNoAxesColumn } from 'lucide-react';
+import { SearchIcon } from 'lucide-react';
+import { ScrollText } from 'lucide-react';
 
 const CrimeInvestigationApp = () => {
     const [suspects, setSuspects] = useState([]);
@@ -114,7 +117,7 @@ const CrimeInvestigationApp = () => {
                 {/* Header */}
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-                        🔍 Système d'Enquête Criminelle
+                        Système d'Enquête Criminelle
                     </h1>
                     <p className="text-gray-300 text-lg">
                         Interface React avec serveur Prolog
@@ -248,7 +251,7 @@ const CrimeInvestigationApp = () => {
                 {/* Résultats de l'analyse */}
                 {analysis && (
                     <div className="mt-8 bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-slate-600">
-                        <h2 className="text-2xl font-bold mb-6">📊 Résultats de l'enquête</h2>
+                        <h2 className="text-2xl font-bold mb-6 flex gap-2 items-center"><ChartNoAxesColumn /> Résultats de l'enquête</h2>
 
                         <div className={`p-6 rounded-lg border-l-4 ${analysis.guilty
                             ? 'bg-red-900/20 border-red-500'
@@ -282,7 +285,7 @@ const CrimeInvestigationApp = () => {
                             </div>
 
                             <div className="mb-4">
-                                <h4 className="font-semibold mb-2">🔍 Preuves collectées :</h4>
+                                <h4 className="font-semibold mb-2 flex items-center gap-2"><SearchIcon /> Preuves collectées :</h4>
                                 {analysis.evidence.length > 0 ? (
                                     <div className="grid md:grid-cols-2 gap-2">
                                         {analysis.evidence.map((evidence, idx) => (
@@ -298,7 +301,7 @@ const CrimeInvestigationApp = () => {
                             </div>
 
                             <div className="bg-slate-700/50 p-4 rounded">
-                                <h4 className="font-semibold mb-2">📝 Requête Prolog :</h4>
+                                <h4 className="font-semibold mb-2 flex items-center gap-3"><ScrollText /> Requête Prolog :</h4>
                                 <code className="text-sm text-blue-300">
                                     ?- is_guilty({analysis.suspect}, {analysis.crime}).
                                 </code>
