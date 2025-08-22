@@ -12,6 +12,11 @@
 crime_type(assassinat).
 crime_type(vol).
 crime_type(escroquerie).
+crime_type(enlevement).
+crime_type(incendie).
+crime_type(cybercrime).
+crime_type(trafic).
+crime_type(corruption).
 
 % Suspects
 suspect(john).
@@ -19,31 +24,56 @@ suspect(mary).
 suspect(alice).
 suspect(bruno).
 suspect(sophie).
+suspect(luc).
+suspect(emma).
+suspect(olivier).
+suspect(clara).
+suspect(kevin).
+suspect(nina).
 
 % Motifs
 has_motive(john, vol).
 has_motive(mary, assassinat).
 has_motive(alice, escroquerie).
 has_motive(bruno, escroquerie).
+has_motive(luc, incendie).
+has_motive(emma, enlevement).
+has_motive(olivier, corruption).
+has_motive(clara, cybercrime).
+has_motive(kevin, trafic).
+has_motive(nina, vol).
 
 % Présence sur la scène de crime
 was_near_crime_scene(john, vol).
 was_near_crime_scene(mary, assassinat).
+was_near_crime_scene(luc, incendie).
+was_near_crime_scene(emma, enlevement).
+was_near_crime_scene(kevin, trafic).
+was_near_crime_scene(nina, vol).
 
 % Empreintes sur l'arme
 has_fingerprint_on_weapon(john, vol).
 has_fingerprint_on_weapon(mary, assassinat).
+has_fingerprint_on_weapon(luc, incendie).
+has_fingerprint_on_weapon(kevin, trafic).
 
 % Transactions bancaires suspectes
 has_bank_transaction(alice, escroquerie).
 has_bank_transaction(bruno, escroquerie).
+has_bank_transaction(olivier, corruption).
+has_bank_transaction(clara, cybercrime).
 
 % Fausses identités
 owns_fake_identity(sophie, escroquerie).
+owns_fake_identity(emma, enlevement).
+owns_fake_identity(clara, cybercrime).
 
 % Témoignages oculaires (simulé)
 eyewitness_identification(john, vol).
 eyewitness_identification(mary, assassinat).
+eyewitness_identification(luc, incendie).
+eyewitness_identification(emma, enlevement).
+eyewitness_identification(nina, vol).
 
 %% --- Règles de déduction ---
 
@@ -57,6 +87,16 @@ is_guilty(Suspect, Crime) :-
 is_guilty(Suspect, escroquerie) :-
     has_motive(Suspect, escroquerie),
     (has_bank_transaction(Suspect, escroquerie) ; owns_fake_identity(Suspect, escroquerie)).
+
+% Règle spéciale pour le cybercrime
+is_guilty(Suspect, cybercrime) :-
+    has_motive(Suspect, cybercrime),
+    (has_bank_transaction(Suspect, cybercrime) ; owns_fake_identity(Suspect, cybercrime)).
+
+% Règle spéciale pour la corruption
+is_guilty(Suspect, corruption) :-
+    has_motive(Suspect, corruption),
+    has_bank_transaction(Suspect, corruption).
 
 % Collecte des preuves pour un suspect et un crime
 collect_evidence(Suspect, Crime, Evidence) :-
