@@ -269,7 +269,7 @@ const CrimeInvestigationApp = () => {
                                             {analysis.suspect.charAt(0).toUpperCase() + analysis.suspect.slice(1)}
                                         </h3>
                                         <p className="text-gray-300">
-                                            Crime: {analysis.crime.charAt(0).toUpperCase() + analysis.crime.slice(1)}
+                                            Délit : {analysis.crime.charAt(0).toUpperCase() + analysis.crime.slice(1)}
                                         </p>
                                     </div>
                                 </div>
@@ -279,7 +279,7 @@ const CrimeInvestigationApp = () => {
                                         {analysis.guilty ? 'COUPABLE' : 'INNOCENT'}
                                     </div>
                                     <div className="text-sm text-gray-400">
-                                        Confiance: {analysis.confidence}%
+                                        Niveau de confiance : {analysis.confidence}%
                                     </div>
                                 </div>
                             </div>
@@ -296,12 +296,12 @@ const CrimeInvestigationApp = () => {
                                         ))}
                                     </div>
                                 ) : (
-                                    <p className="text-gray-400 italic">Aucune preuve trouvée</p>
+                                    <p className="text-gray-400 italic">Aucune preuve disponible</p>
                                 )}
                             </div>
 
                             <div className="bg-slate-700/50 p-4 rounded">
-                                <h4 className="font-semibold mb-2 flex items-center gap-3"><ScrollText /> Requête Prolog :</h4>
+                                <h4 className="font-semibold mb-2 flex items-center gap-3"><ScrollText /> Requête Prolog exécutée :</h4>
                                 <code className="text-sm text-blue-300">
                                     ?- is_guilty({analysis.suspect}, {analysis.crime}).
                                 </code>
