@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/lang-JS-yellow)
 ![Static Badge](https://img.shields.io/badge/framework-React%2BVite-cyan)
 
-Ce projet est une enquête criminelle interactive utilisant Prolog (SWI-Prolog) pour la logique d'investigation. Le frontend est développé avec React et Vite, qui consomment une API exposée par le backend Prolog.
+Ce projet consiste en une enquête criminelle interactive. La partie logique de l’investigation est gérée par Prolog (SWI-Prolog). L’interface utilisateur, développée avec React et Vite, communique avec une API mise à disposition par le backend Prolog.
 
 ## Installation
 
